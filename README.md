@@ -2,10 +2,10 @@ This repo contains codes for our paper on Optimal-Transport based conformal pred
 
 # Requirements
 
-Codes require the package arc for the ARS method in classification, available at : https://github.com/msesia/arc 
+Experiments in classification require the package arc for the ARS method, available at: https://github.com/msesia/arc 
 File : arc 
 
-Experiments in regression involving the local ellipsoid method :  https://github.com/M-Soundouss/EllipsoidalConformalMTR/tree/main
+Experiments in regression involve the local ellipsoid method, available at:  https://github.com/M-Soundouss/EllipsoidalConformalMTR/tree/main
 File : ellipsoidal_conformal_utilities.py
 
 functions.py contains our main functions
