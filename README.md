@@ -20,6 +20,8 @@ Classif_OTCP2.ipynb contains experiments for Classification in the supplementary
 
 # Regression 
 
+The file 'data' contains the real datasets that were downloaded from https://github.com/tsoumakas/mulan/blob/master/data/multi-target/README.md 
+
 Regression.ipynb contains experiments for Regression, on simulated data and on real data.
 
 If one wants to compute the WSC coverage metric (which may take time), the file functions.py must be replaced by functions_with_wscCoverage.py

@@ -179,18 +179,21 @@ class JackknifePlus:
 
 class SplitConformal:
     def __init__(self, X, Y, black_box, alpha, random_state=2020, allow_empty=True, verbose=False):
+        ### In this function, changes have been made to allow comparison over the same split of datasets. 
+        ### Changes are specified with '###'
+
         self.allow_empty = allow_empty
 
         # Split data into training/calibration sets
-        ### X_train, X_calib, Y_train, Y_calib = train_test_split(X, Y, test_size=0.5, random_state=random_state) ## Gauthier : I have commented this 
-        X_calib = X  ### gauthier : i have added this 
-        Y_calib = Y  ### gauthier : i have added this 
+        ### this is commented: ### X_train, X_calib, Y_train, Y_calib = train_test_split(X, Y, test_size=0.5, random_state=random_state) 
+        X_calib = X  ### this is added
+        Y_calib = Y  ### this is added
         n2 = X_calib.shape[0]
 
         self.black_box = black_box
 
         # Fit model
-        ### self.black_box.fit(X_train, Y_train) ## Gauthier : I have commented this 
+        ### this is commented: ### self.black_box.fit(X_train, Y_train) 
 
         # Form prediction sets on calibration data
         try:
