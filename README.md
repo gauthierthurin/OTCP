@@ -1,13 +1,5 @@
 This repo contains codes for our paper on Optimal-Transport based conformal prediction, available at https://arxiv.org/abs/2501.18991
 
-# Requirements
-
-Experiments in classification require the package arc for the ARS method, available at: https://github.com/msesia/arc 
-File : arc 
-
-Experiments in regression involve the local ellipsoid method, available at:  https://github.com/M-Soundouss/EllipsoidalConformalMTR/tree/main
-File : ellipsoidal_conformal_utilities.py
-
 functions.py contains our main functions
 
 # Classification
@@ -30,3 +22,10 @@ If one wants to compute the WSC coverage metric (which may take time), the file 
 
 Examples.ipynb contains codes to produce figures that exemplify transport-based quantiles 
 
+# Files taken from previous works
+
+Experiments in classification require the package arc for the ARS method, available at: https://github.com/msesia/arc 
+Folder : arc 
+
+Experiments in regression involve the local ellipsoid method, available at:  https://github.com/M-Soundouss/EllipsoidalConformalMTR/tree/main
+File : ellipsoidal_conformal_utilities.py
