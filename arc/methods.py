@@ -179,32 +179,32 @@ class JackknifePlus:
 
 class SplitConformal:
     def __init__(self, X, Y, black_box, alpha, random_state=2020, allow_empty=True, verbose=False):
-        ### In this function, changes have been made to allow comparison over the same split of datasets. 
-        ### Changes are specified with '###'
-
         self.allow_empty = allow_empty
 
         # Split data into training/calibration sets
-        ### this is commented: ### X_train, X_calib, Y_train, Y_calib = train_test_split(X, Y, test_size=0.5, random_state=random_state) 
-        X_calib = X  ### this is added
-        Y_calib = Y  ### this is added
-        n2 = X_calib.shape[0]
+        #X_train, X_calib, Y_train, Y_calib = train_test_split(X, Y, test_size=0.5, random_state=random_state)
+        #n2 = X_calib.shape[0]
 
-        self.black_box = black_box
+        #self.black_box = black_box
 
         # Fit model
-        ### this is commented: ### self.black_box.fit(X_train, Y_train) 
+        #self.black_box.fit(X_train, Y_train)
 
         # Form prediction sets on calibration data
+        #p_hat_calib = self.black_box.predict_proba(X_calib)
+
+        self.black_box = black_box
         try:
-            p_hat_calib = self.black_box.predict_proba(X_calib)
-        except: 
-            p_hat_calib = self.black_box.predict(X_calib)
+            p_hat_calib = self.black_box.predict_proba(X)
+        except:
+            p_hat_calib = self.black_box.predict(X)
+        n2 = X.shape[0]
+
         grey_box = ProbAccum(p_hat_calib)
 
         rng = np.random.default_rng(random_state)
         epsilon = rng.uniform(low=0.0, high=1.0, size=n2)
-        alpha_max = grey_box.calibrate_scores(Y_calib, epsilon=epsilon)
+        alpha_max = grey_box.calibrate_scores(Y, epsilon=epsilon)
         scores = alpha - alpha_max
         level_adjusted = (1.0-alpha)*(1.0+1.0/float(n2))
         alpha_correction = mquantiles(scores, prob=level_adjusted)
@@ -218,7 +218,7 @@ class SplitConformal:
         epsilon = rng.uniform(low=0.0, high=1.0, size=n)
         try:
             p_hat = self.black_box.predict_proba(X)
-        except: 
+        except:
             p_hat = self.black_box.predict(X)
         grey_box = ProbAccum(p_hat)
         S_hat = grey_box.predict_sets(self.alpha_calibrated, epsilon=epsilon, allow_empty=self.allow_empty)
