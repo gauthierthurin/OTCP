@@ -1,4 +1,4 @@
-This repo contains codes for our paper on Optimal-Transport based conformal prediction, available at https://arxiv.org/abs/2501.18991
+This repo contains codes for our paper on Optimal-Transport based conformal prediction, available at https://arxiv.org/abs/2501.18991v2
 
 functions.py contains our main functions
 
